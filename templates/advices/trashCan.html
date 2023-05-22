@@ -1,59 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trashcan</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}" type="text/css" />
+    <script type="text/javascript" src="{% static 'script1.js' %}"></script>
+    <style>
+      #can1 {
+        left: 0%;
+        background-image: url("{% static 'can1.png' %}");
+        background-size: contain;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>trashcan</title>
-  <link rel="stylesheet" href="{% static 'style2.css' %}" type="text/css" />
-  <script type="text/javascript" src="{% static 'script1.js' %}"></script>
-  <style>
-    #can1 {
-      left: 0%;
-      background-image: url("{% static 'can1.png' %}");
-      background-size: contain;
-    }
+      #can2 {
+        left: 30%;
+        background-image: url("{% static 'can2.png' %}");
+        background-size: contain;
+      }
 
-    #can2 {
-      left: 30%;
-      background-image: url("{% static 'can2.png' %}");
-      background-size: contain;
-    }
+      #can3 {
+        left: 60%;
+        background-image: url("{% static 'can3.png' %}");
+        background-size: contain;
+      }
+    </style>
+  </head>
 
-    #can3 {
-      left: 60%;
-      background-image: url("{% static 'can3.png' %}");
-      background-size: contain;
-    }
-  </style>
-</head>
-
-<body style="background-color: #99ccff">
-  <div class="container block2">
-    <img id="letter" src="{% static 'trash.png' %}" draggable="true" ondragstart="drag(event)" />
-    {% if category == 'him' %}
-    <div class="can" id="can1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <div class="can" id="can2"></div>
-    <div class="can" id="can3"></div>
-    {% elif category == 'jja' %}
-    <div class="can" id="can1"></div>
-    <div class="can" id="can2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <div class="can" id="can3"></div>
-    {% elif category == 'sok' %}
-    <div class="can" id="can1"></div>
-    <div class="can" id="can2"></div>
-    <div class="can" id="can3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    {% else %}
-    <div class="can" id="can1"></div>
-    <div class="can" id="can2"></div>
-    <div class="can" id="can3"></div>
-    {% endif %}
-    <button type="button" id="button" onclick="changePage()">
-      위로받으러 가기
-    </button>
-  </div>
-</body>
-
+  <body style="background-color: #99ccff">
+    <div class="container block2">
+      <img
+        id="letter"
+        src="{% static 'trash.png' %}"
+        draggable="true"
+        ondragstart="drag(event)"
+      />
+      {% if category == 'him' %}
+      <div
+        class="can"
+        id="can1"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div class="can" id="can2"></div>
+      <div class="can" id="can3"></div>
+      {% elif category == 'jja' %}
+      <div class="can" id="can1"></div>
+      <div
+        class="can"
+        id="can2"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      <div class="can" id="can3"></div>
+      {% elif category == 'sok' %}
+      <div class="can" id="can1"></div>
+      <div class="can" id="can2"></div>
+      <div
+        class="can"
+        id="can3"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+      {% else %}
+      <div class="can" id="can1"></div>
+      <div class="can" id="can2"></div>
+      <div class="can" id="can3"></div>
+      {% endif %}
+      <button type="button" id="button" onclick="changePage()">
+        위로받으러 가기
+      </button>
+    </div>
+  </body>
 </html>
