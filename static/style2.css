@@ -1,0 +1,94 @@
+.container {
+    margin-top: 50px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.block2 {
+    position: fixed;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 3%;
+    border: 1px solid ghostwhite;
+    width: 60%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 1rem;
+}
+
+#letter {
+    width: 150px;
+    height: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    transition: all 0.2s linear;
+}
+
+#letter:hover {
+    transform: scale(1.2);
+}
+
+.can {
+    position: fixed;
+    width: 40%;
+    height: 40%;
+    top: 45%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* #button {                다은이가 바꾸기 전
+    display: none;
+    margin: 100px auto;
+    width: 500px;
+    height: 100px;
+    font-size: 25px;
+    border-radius: 150px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    box-shadow: 0 14px 0 grey;
+    text-decoration: none;
+    background-color: white;
+    text-align: center;
+    justify-content: flex-start;
+    line-height: 100px;
+} */
+#button:hover {
+    cursor: pointer;
+}
+
+/* #button:active {    다은이가 바꾸기 전
+    font-size: 30px;
+} */
+
+#button {
+    display: none;
+    margin: 0px auto;
+    width: 300px;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 150px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    box-shadow: 0 14px 0 grey;
+    text-decoration: none;
+    background-color: white;
+    text-align: center;
+    justify-content: flex-start;
+    line-height: 80px;
+}
+
+#button:active {
+    font-size: 25px;
+}

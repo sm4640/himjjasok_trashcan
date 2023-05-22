@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.block1 {
+    position: fixed;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 3%;
+    border: 1px solid ghostwhite;
+    width: 60%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.block2 {
+    position: fixed;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 3%;
+    border: 1px solid ghostwhite;
+    width: 60%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 1rem;
+}
+.position {
+    position: relative;
+    top: -15%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main_image_text {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    /* 현수막 길이 화면에 맞추면서 left 속성으로 인해 이 속성의 left도 5% 추가됨. */
+    transform: translate(-50%, 100%);
+    color: black;
+    z-index: 1;
+    text-align: center;
+}
+
+@keyframes blink-effect {
+    50% {
+        opacity: 0;
+    }
+}
+
+#clickboo,
+#fortune1 {
+    display: block;
+    align-items: center;
+    font-size: 30px;
+}
+
+#fortune2 {
+    display: none;
+    align-items: center;
+    font-size: 30px;
+}
+
+#fortune1,
+#fortune2 {
+    animation: blink-effect 1s step-end 2;
+}

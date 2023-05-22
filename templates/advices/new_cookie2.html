@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>포춘쿠키</title>
+    <link href="style3.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body style="background-color: #99ccff">
+    <div class="block1">
+      <img
+        id="myImage"
+        src="src/cookie.png"
+        onclick="changeImage()"
+        style="cursor: pointer"
+        width="300px"
+        height="300px"
+      />
+      <!-- <div
+        id="fortune1"
+      >
+        🍀포춘쿠키를 눌러주세요🍀
+      </div>
+      <div
+        id="fortune2"
+      >
+        🍀한 번 더 클릭!🍀
+      </div> -->
+      <audio id="mySound" src="src/broken audio.mp3"></audio>
+    </div>
+
+    <script>
+      // if ((myImage.src = "src/cookie.png")) {
+      //   setTimeout(function () {
+      //     document.getElementById("fortune1").style.display = "block";
+      //   }, 100);
+      // } // 로딩 시간 차 때문에 fortune1이 이미지보다 먼저 display되는 것 방지
+
+      var isBroken = false;
+
+      function changeImage() {
+        var image = document.getElementById("myImage");
+        var sound = document.getElementById("mySound");
+
+        if (!isBroken) {
+          document.getElementById("fortune1").style.display = "none";
+          // 소리 재생
+          sound.play();
+          // 2초 후에 소리 정지
+          setTimeout(function () {
+            sound.pause();
+            sound.currentTime = 0;
+          }, 2000);
+          // 이미지 변경
+
+          image.src = "src/broken.png";
+          isBroken = true;
+
+          // setTimeout(function () {
+          //   document.getElementById("fortune2").style.display = "block";
+          // }, 100); // 로딩 시간 차 때문에 fortune2가 이미지보다 먼저 display되는 것 방지
+        } else {
+          // 이미지가 변경된 후에 "src/broken.png"를 클릭했을 때 페이지 이동
+          window.location.href = "./LastPage.html";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lastpage</title>
+  <link rel="stylesheet" href="{% static 'style3.css' %}" type="text/css" />
+  <script type="text/javascript" src="{% static 'script2.js' %}"></script>
+</head>
+
+<body style="background-color: #99CCFF">
+  <div class="block2">
+    <div style="text-align: center; margin-bottom: 70px; left: -5%" class="position">
+      <img src="{% static 'words.png' %}" width="850px" height="300px" class="main_image" />
+      <div class="main_image_text" style="font-size: 25px; font-weight: bold">
+        {{advice}}
+      </div>
+    </div>
+    <div class="container position">
+      <a style="margin-right: 10px">
+        <a href="letter">
+          <img src="{% static 'retry.png' %}" width="140px" height="120px" />
+          <div style="padding-left: 20px;">다시쓰기</div>
+        </a>
+        <a>
+          <a href="/">
+            <img src="{% static 'startpage.png' %}" width="140px" height="120px" />
+            <div>처음으로 돌아가기</div>
+          </a>
+    </div>
+  </div>
+</body>
+
+</html>

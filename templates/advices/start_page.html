@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 1. 플랜카드에 들어가는 내용 위치가 이상함 (해야됨)
+     2. 글씨체
+     3. 아직도 사진용량 때문에 너무 느림(방법이 증말 없나..)
+     4. 부가 쿠키 주는거에서 까질때 다 자동으로 넘어가고 쿠키 깔때만 클릭한번만 하는거 어떤지
+     (쿠키를 클릭해보세요 이런 문구도 있으면 좋고) -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>startpage</title>
+  <link rel="stylesheet" href="{% static 'style1.css' %}" />
+</head>
+
+<body>
+  <div class="start_page">
+    <img src="{% static 'todakboo.JPG' %}" class="img" />
+    <h1>힘 짜 속 쓰 레 기 통</h1>
+    <button type="button" class="start_btn">위로 받으러 가기</button>
+  </div>
+  <div class="guide_modal">
+    <div class="guide_modal_content">
+      <h1>*사용 방법 및 주의 사항 *</h1>
+      <p class="welcome">감정을 버릴 수 있는 가상 공간인 <br>
+        <font size="4" color="#99ccff">‘힘짜속 쓰레기통’</font>에 오신 것을 환영합니다.
+      </p>
+      <div class="guide_content">
+        <p>1. 아래의 힘짜속 쓰기 버튼을 누르면, <br> 힘짜속을 쓸 수 있는 공간이 나타납니다. <br> 그곳에 힘짜속을 작성해주세요</p>
+        <p>2. 작성을 완료하셨다면, <br> 작성 완료 버튼을 눌러주세요.</p>
+        <p>3. 힘 짜 속 쓰레기통 중 하나에 <br> 당신의 문제를 버리세요.</p>
+        <p>4. 쓰레기를 쓰레기통에 넣는 순간 <br> 저장되지 않고 사라집니다.</p>
+        <p>5. 저희는 저희는 당신을 위해 <br> 작은 위로를 드릴 예정입니다.
+          <br />*상황과 맞지 않을 수 있으니, <br> 참고만 해주시면 감사하겠습니다:)
+        </p>
+        <button type="button" class="write_down_btn">힘짜속 쓰기</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+  const startBtn = document.querySelector(".start_btn");
+  const guideModal = document.querySelector(".guide_modal");
+  const writeDownBtn = document.querySelector(".write_down_btn");
+
+  startBtn.addEventListener("click", () => {
+    guideModal.style.display = "block";
+  });
+  writeDownBtn.addEventListener("click", () => {
+    window.location.href = "letter";
+  });
+</script>
+
+</html>

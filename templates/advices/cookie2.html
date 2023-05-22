@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cookie</title>
+  <link rel="stylesheet" href="{% static 'style3.css' %}" type="text/css" />
+  <!-- <script type="text/javascript" src="{% static 'script2.js' %}"></script> -->
+</head>
+
+<body style="background-color: #99ccff">
+  <div class="block1">
+    <img id="myImage" src="{% static 'cookie.png' %}" onclick="changeImage()" style="cursor: pointer" width="300px"
+      height="300px" />
+    <div id="fortune1">
+      🍀포춘쿠키를 눌러주세요🍀
+    </div>
+    <div id="fortune2">
+      🍀한 번 더 클릭!🍀
+    </div>
+    <audio id="mySound" src="{% static 'broken audio.mp3' %}"></audio>
+  </div>
+
+  <!-- <script>
+    if ((myImage.src = "{% static 'cookie.png' %}")) {
+      setTimeout(function () {
+        document.getElementById("fortune1").style.display = "block";
+      }, 100);
+    }
+    var isBroken = false;
+
+    function changeImage() {
+      var image = document.getElementById("myImage");
+      var sound = document.getElementById("mySound");
+
+      if (!isBroken) {
+        // 소리 재생
+        sound.play();
+        // 2초 후에 소리 정지
+        setTimeout(function () {
+          sound.pause();
+          sound.currentTime = 0;
+        }, 2000);
+        // 이미지 변경
+        image.src = "{% static 'broken.png' %}";
+        isBroken = true;
+
+        setTimeout(function () {
+          document.getElementById("fortune2").style.display = "block";
+        }, 100);
+      } else {
+        // 이미지가 변경된 후에 "src/broken.png"를 클릭했을 때 페이지 이동
+        window.location.href = "lastpage";
+      }
+    }
+  </script> -->
+  <script>
+    var images = ["{% static 'broken.png' %}"];
+    var fortune1 = document.getElementById("fortune1");
+    var fortune2 = document.getElementById("fortune2");
+    var sound = document.getElementById("mySound");
+
+    var isClicked = false;
+
+    function changeImage() {
+      if (!isClicked) {
+        fortune1.style.display = "none";
+        sound.play();
+
+        setTimeout(function () {
+          sound.pause();
+          sound.currentTime = 0;
+          document.getElementById("myImage").src = images[0];
+
+          setTimeout(function () {
+            fortune2.style.display = "block";
+          }, 100);
+        }, 2000);
+        isClicked = true;
+      } else {
+        window.location.href = "lastpage";
+      }
+    }
+  </script>
+</body>
+
+</html>

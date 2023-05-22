@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>write_down_page</title>
+  <link rel="stylesheet" href="{% static 'style1.css' %}" />
+</head>
+
+<body style="background-color: #99ccff">
+  <div class="second_page">
+    <h1 style="margin-top: 0%">오늘의 힘 짜 속</h1>
+    <form action="/letter" method="get">
+      <div class="select_feelings">
+        <label>감정 선택:</label>
+        <select name="category" , id="id_category">
+          <option value="">감정 선택</option>
+          <option value="him">힘든 일</option>
+          <option value="jja">짜증나는 일</option>
+          <option value="sok">속상한 일</option>
+        </select><br />
+        <input type="submit" id="category" value="선택 완료" class="end_selcet_btn" onchange="submitForm();" />
+      </div>
+    </form>
+    <div class="paper">
+      <div class="lines">
+        <div class="text" contenteditable spellcheck="false">
+          {% if advice == ''%}
+          감정을 먼저 선택해 주세요
+          {% else %}
+          여기에 입력하세요 :)
+          {% endif %}
+        </div>
+      </div>
+      <div class="holes hole-top"></div>
+      <div class="holes hole-middle"></div>
+      <div class="holes hole-bottom"></div>
+    </div>
+    <div class="buttons">
+      {% if advice == '' %}
+
+      {% else %}
+      <button type="button" class="throw_trash_btn">작성 완료</button>
+      {% endif %}
+    </div>
+  </div>
+  <div class="trash">
+    <div class="ballAndBtn">
+      <img src="{% static 'papperball.PNG' %}" class="trash_img" />
+      <button type="button" onclick="changePage()" class="throw_paperBall">
+        힘짜속 버리기
+      </button>
+    </div>
+  </div>
+  <script>
+    const throwTrashBtn = document.querySelector(".throw_trash_btn");
+    const secondPage = document.querySelector(".second_page");
+    const trashImage = document.querySelector(".trash");
+    // const throwPaperBallBtn = document.querySelector(".throw_paperBall");
+    const textInput = document.querySelector(".text");
+    const maxCharacters = 500;
+
+    throwTrashBtn.addEventListener("click", () => {
+      secondPage.classList.add("disappear");
+      secondPage.addEventListener("animationend", () => {
+        secondPage.style.display = "none";
+        trashImage.style.display = "block";
+        trashImage.classList.add("appear");
+      });
+    });
+
+    function changePage() {
+      window.location.href = "trashcan";
+    }
+
+    // throwPaperBallBtn.addEventListener("click", () => {
+    //   window.location.href = "second_part/trashCan.html";
+    // });
+
+    textInput.addEventListener("input", () => {
+      let text = textInput.innerText;
+
+      if (text.length > maxCharacters) {
+        text = text.slice(0, maxCharacters);
+        textInput.innerText = text;
+        placeCaretAtEnd(textInput);
+      }
+    });
+
+    function placeCaretAtEnd(element) {
+      element.focus();
+      if (
+        typeof window.getSelection !== "undefined" &&
+        typeof document.createRange !== "undefined"
+      ) {
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        range.collapse(false);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      } else if (typeof document.body.createTextRange !== "undefined") {
+        const textRange = document.body.createTextRange();
+        textRange.moveToElementText(element);
+        textRange.collapse(false);
+        textRange.select();
+      }
+    }
+  </script>
+  <script>
+    function submitForm() {
+      document.getElementById("category").submit();
+    }
+  </script>
+</body>
+
+</html>
