@@ -31,11 +31,11 @@ def letter(request):
         return render(request, 'advices/letter.html', context)
     else:
         if querydict['category'] == 'him':
-            advice = advice_him.objects.get(id=random.randint(1,2)).content
+            advice = advice_him.objects.get(id=random.randint(1,10)).content
         elif querydict['category'] == 'jja':
-            advice = advice_jja.objects.get(id=random.randint(1,2)).content
+            advice = advice_jja.objects.get(id=random.randint(1,11)).content
         elif querydict['category'] == 'sok':
-            advice = advice_sok.objects.get(id=random.randint(1,2)).content
+            advice = advice_sok.objects.get(id=random.randint(1,10)).content
         else:
             return render(request, 'advices/letter.html', context)
         print(f'advice:{advice}')
